@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link href="src/styles.css" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <title>Weather Cherkasy</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="border border-primary p-2 mb-2 border-3 w-50 p-3 border-box">
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="search"
+                class="form-control"
+                placeholder="Search city.."
+                autocomplete="off"
+                class="form-control shadow-sm"
+                id="search-city-input"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                id="search-city-submit"
+                type="submit"
+                value="Search"
+                class="form-control btn btn-primary shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                id="current-place"
+                type="submit"
+                value="Current place"
+                class="form-control btn btn-info shadow-sm"
+              />
+            </div>
+          </div>
+        </form>
+
+        <div class="row current_weather">
+          <div class="col-3 column1">
+            <img
+              src="images/sun_s_cloudy.png"
+              alt="sun and cloudy"
+              class="current_weather_picture"
+            />
+            <p>
+              <span id="humidity"> Humidity: 39% </span>
+              <br />
+              <span id="wind"> Wind: 10 km/h </span>
+            </p>
+          </div>
+
+          <div class="col-4 column2">
+            <span class="currentTemp" id="currentTemp">28</span>
+            <span class="units"
+              ><a class="temp" id="tempCel" href="#">°C</a> |
+              <a class="temp" id="tempFar" href="#">°F</a></span
+            >
+          </div>
+
+          <div class="col-1"></div>
+
+          <div class="col-3 column4">
+            <h5 class="cityChoise" id="cityChoise">Cherkasy</h5>
+            <p class="text">
+              <span id="week-day-time"> Friday 15:00 </span>
+              <br />
+              <span id="short-description"> Partly cloudy</span>
+            </p>
+          </div>
+        </div>
+        <div class="row button_weather">
+          <div class="col-2"></div>
+          <div class="col-2"></div>
+          <div class="col-2"></div>
+          <div class="col-2">
+            <button
+              type="button"
+              class="btn btn-light btn-sm text-secondary-emphasis"
+            >
+              Temperature
+            </button>
+          </div>
+          <div class="col-2">
+            <button
+              type="button"
+              class="btn btn-light btn-sm text-secondary-emphasis"
+            >
+              Precipitation
+            </button>
+          </div>
+          <div class="col-2">
+            <button
+              type="button"
+              class="btn btn-light btn-sm text-secondary-emphasis"
+            >
+              Wind
+            </button>
+          </div>
+        </div>
+
+        <div class="row daily_weather">
+          <div class="col-2 column_sat">
+            <h6>Sat</h6>
+            <img
+              src="images/sun_s_cloudy.png"
+              alt="sun and cloudy"
+              class="daily_weather_picture"
+            />
+            <span class="day_temp">29 °</span>
+            <span class="night_temp">21 °</span>
+          </div>
+
+          <div class="col-2 column_sun">
+            <h6>Sun</h6>
+            <img
+              src="images/rain_s_cloudy.png"
+              alt="rain and cloudy"
+              class="daily_weather_picture_rain"
+            />
+            <span class="day_temp">32 °</span>
+            <span class="night_temp">21 °</span>
+          </div>
+
+          <div class="col-2 column_mon">
+            <h6>Mon</h6>
+            <img
+              src="images/sun_s_cloudy.png"
+              alt="sun and cloudy"
+              class="daily_weather_picture"
+            />
+            <span class="day_temp">33 °</span>
+            <span class="night_temp">21 °</span>
+          </div>
+
+          <div class="col-2 column_tue">
+            <h6>Tue</h6>
+            <img
+              src="images/sun_s_cloudy.png"
+              alt="sun and cloudy"
+              class="daily_weather_picture"
+            />
+            <span class="day_temp">32 °</span>
+            <span class="night_temp">21 °</span>
+          </div>
+
+          <div class="col-2 column_wed">
+            <h6>Wed</h6>
+            <img
+              src="images/rain_s_cloudy.png"
+              alt="rain and cloudy"
+              class="daily_weather_picture_rain"
+            />
+            <span class="day_temp">29 °</span>
+            <span class="night_temp">21 °</span>
+          </div>
+
+          <div class="col-2 column_thu">
+            <h6>Thu</h6>
+            <img
+              src="images/sun_s_cloudy.png"
+              alt="sun and cloudy"
+              class="daily_weather_picture"
+            />
+            <span class="day_temp">22 °</span>
+            <span class="night_temp">18 °</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

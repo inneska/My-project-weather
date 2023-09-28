@@ -1,0 +1,52 @@
+.border-box {
+  display: block;
+  margin: 20px auto;
+}
+.search-form {
+  padding-bottom: 15px;
+}
+.current_weather {
+  color: #737a89;
+}
+.column1 {
+  font-size: 13px;
+}
+
+.temp {
+  text-decoration: none;
+}
+.currentTemp {
+  color: #353cf7;
+  font-size: 36px;
+}
+
+.current_weather_picture {
+  width: 50%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+.column4 {
+  text-align: left;
+}
+.cityChoise {
+  font-size: 30px;
+  color: #353cf7;
+}
+.button_weather {
+  text-align: center;
+}
+.daily_weather {
+  font-size: 100%;
+  text-align: center;
+  color: #737a89;
+}
+.daily_weather_picture_rain {
+  width: 75%;
+}
+.day_temp {
+  color: #ed3a2f;
+}
+.night_temp {
+  color: #737a89;
+}
