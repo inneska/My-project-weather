@@ -1,4 +1,3 @@
-// Заміна дати на поточну
 function setCurrentDateTime() {
   let now = new Date();
   let days = [
@@ -19,42 +18,54 @@ function setCurrentDateTime() {
 }
 setCurrentDateTime();
 
-// Відображення введеного міста як поточного і його погодні умови
-function showTemperature(response) {
-  // console.log(response);
-  let temperature = Math.round(response.data.main.temp);
-  let temperatureElememt = document.querySelector("#currentTemp");
-  temperatureElememt.innerHTML = `${temperature}`;
-  // Короткий опис по хмарності
+function showWeatherCondition(response) {
+  document.querySelector("#cityChoise").innerHTML = response.data.name;
+  document.querySelector("#currentTemp").innerHTML = Math.round(
+    response.data.main.temp
+  );
   let description = response.data.weather[0].description;
   description = description.charAt(0).toUpperCase() + description.slice(1);
   let descriptionElememt = document.querySelector("#short-description");
   descriptionElememt.innerHTML = `${description}`;
-  // Поточна вологість
+  //
   let humidity = response.data.main.humidity;
   let humidityElememt = document.querySelector("#humidity");
   humidityElememt.innerHTML = ` Humidity: ${humidity}%`;
-  // Швидкість вітру wind
+  //
   let wind = response.data.wind.speed;
   let windElememt = document.querySelector("#wind");
   windElememt.innerHTML = ` Wind: ${wind} km/h`;
 }
 
+function searchDefaultCity(city) {
+  let apiKey = "1dbf926d3b4417bf379db7043bec1047";
+  let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(`${urlApi}`).then(showWeatherCondition);
+}
+
 function searchCity(event) {
   event.preventDefault();
-  let input = document.querySelector("#search-city-input");
-  let currentCity = document.querySelector("#cityChoise");
-  input.value = input.value.charAt(0).toUpperCase() + input.value.slice(1);
-  currentCity.innerHTML = `${input.value}`;
-  let apiKey = "1dbf926d3b4417bf379db7043bec1047";
-  let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&units=metric&appid=${apiKey}`;
-  axios.get(`${urlApi}`).then(showTemperature);
+  let city = document.querySelector("#search-city-input").value;
+  searchDefaultCity(city);
 }
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", searchCity);
 
-// Перехід між цельсіями і фаренгейтами
+function searchLocation(position) {
+  let apiKey = "1dbf926d3b4417bf379db7043bec1047";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showWeatherCondition);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+let currentLocationButton = document.querySelector("#current-place-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function convertToFar(event) {
   event.preventDefault();
@@ -77,3 +88,5 @@ function convertToCel(event) {
 
 let celLink = document.querySelector("#tempCel");
 celLink.addEventListener("click", convertToCel);
+
+searchDefaultCity("Kyiv");

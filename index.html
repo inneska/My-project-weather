@@ -11,7 +11,7 @@
     />
     <link href="src/styles.css" rel="stylesheet" type="text/css" />
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
-    <title>Weather Cherkasy</title>
+    <title>WeatherApp</title>
   </head>
   <body>
     <div class="container">
@@ -22,7 +22,7 @@
               <input
                 type="search"
                 class="form-control"
-                placeholder="Search city.."
+                placeholder="Enter a city.."
                 autocomplete="off"
                 class="form-control shadow-sm"
                 id="search-city-input"
@@ -33,15 +33,15 @@
                 id="search-city-submit"
                 type="submit"
                 value="Search"
-                class="form-control btn btn-primary shadow-sm"
+                class="form-control btn btn-primary shadow-sm w-100"
               />
             </div>
             <div class="col-3">
               <input
-                id="current-place"
+                id="current-place-button"
                 type="submit"
                 value="Current place"
-                class="form-control btn btn-info shadow-sm"
+                class="form-control btn btn-info shadow-sm w-100"
               />
             </div>
           </div>
@@ -55,14 +55,14 @@
               class="current_weather_picture"
             />
             <p>
-              <span id="humidity"> Humidity: 39% </span>
+              <span id="humidity"> Humidity: % </span>
               <br />
-              <span id="wind"> Wind: 10 km/h </span>
+              <span id="wind"> Wind: km/h </span>
             </p>
           </div>
 
           <div class="col-4 column2">
-            <span class="currentTemp" id="currentTemp">28</span>
+            <span class="currentTemp" id="currentTemp"></span>
             <span class="units"
               ><a class="temp" id="tempCel" href="#">°C</a> |
               <a class="temp" id="tempFar" href="#">°F</a></span
@@ -72,11 +72,11 @@
           <div class="col-1"></div>
 
           <div class="col-3 column4">
-            <h5 class="cityChoise" id="cityChoise">Cherkasy</h5>
+            <h5 class="cityChoise" id="cityChoise"></h5>
             <p class="text">
-              <span id="week-day-time"> Friday 15:00 </span>
+              <span id="week-day-time"> </span>
               <br />
-              <span id="short-description"> Partly cloudy</span>
+              <span id="short-description"> </span>
             </p>
           </div>
         </div>
