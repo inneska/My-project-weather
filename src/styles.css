@@ -1,45 +1,67 @@
+ul {
+  list-style: none;
+  text-align: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+li {
+  font-size: 15px;
+}
 .border-box {
   display: block;
   margin: 20px auto;
 }
 .search-form {
+  padding-top: 10px;
   padding-bottom: 15px;
 }
-.current_weather {
-  color: #737a89;
-}
-.column1 {
-  font-size: 13px;
+
+.button {
+  margin-left: 0px;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  text-align: center;
 }
 
-.temp {
+#current-place-button {
+  background: #25b63e;
+  color: #ffffff;
+}
+.current_weather_block {
+  color: #737a89;
+}
+.column1,
+.column4 {
+  font-size: 15px;
+  text-align: left;
+}
+
+.degrees {
   text-decoration: none;
 }
 .currentTemp {
-  color: #353cf7;
-  font-size: 36px;
+  color: #0d6efd;
+  font-size: 50px;
+  text-align: left;
 }
 
 .current_weather_picture {
-  width: 50%;
-  text-align: center;
+  width: 60%;
   display: block;
-  margin: 0 auto;
+  margin: 0 0 0 10px;
 }
-.column4 {
-  text-align: left;
+
+.cityName {
+  font-size: 40px;
+  color: #202022;
 }
-.cityChoise {
-  font-size: 30px;
-  color: #353cf7;
-}
-.button_weather {
-  text-align: center;
-}
+
 .daily_weather {
   font-size: 100%;
   text-align: center;
   color: #737a89;
+  margin-top: 15px;
 }
 .daily_weather_picture_rain {
   width: 75%;

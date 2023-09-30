@@ -33,7 +33,7 @@
                 id="search-city-submit"
                 type="submit"
                 value="Search"
-                class="form-control btn btn-primary shadow-sm w-100"
+                class="form-control btn btn-primary shadow-sm w-100 button"
               />
             </div>
             <div class="col-3">
@@ -41,72 +41,37 @@
                 id="current-place-button"
                 type="submit"
                 value="Current place"
-                class="form-control btn btn-info shadow-sm w-100"
+                class="form-control btn btn-info shadow-sm w-100 button"
               />
             </div>
           </div>
         </form>
 
-        <div class="row current_weather">
+        <div class="row current_weather_block">
           <div class="col-3 column1">
             <img
               src="images/sun_s_cloudy.png"
               alt="sun and cloudy"
               class="current_weather_picture"
             />
-            <p>
-              <span id="humidity"> Humidity: % </span>
-              <br />
-              <span id="wind"> Wind: km/h </span>
-            </p>
+            <ul>
+              <li id="humidity">Humidity: %</li>
+              <li id="wind">Wind: km/h</li>
+            </ul>
           </div>
-
-          <div class="col-4 column2">
+          <div class="col-3 column2">
             <span class="currentTemp" id="currentTemp"></span>
             <span class="units"
-              ><a class="temp" id="tempCel" href="#">°C</a> |
-              <a class="temp" id="tempFar" href="#">°F</a></span
+              ><a class="degrees" id="tempCel" href="#">°C</a> |
+              <a class="degrees" id="tempFar" href="#">°F</a></span
             >
           </div>
-
-          <div class="col-1"></div>
-
-          <div class="col-3 column4">
-            <h5 class="cityChoise" id="cityChoise"></h5>
-            <p class="text">
-              <span id="week-day-time"> </span>
-              <br />
-              <span id="short-description"> </span>
-            </p>
-          </div>
-        </div>
-        <div class="row button_weather">
-          <div class="col-2"></div>
-          <div class="col-2"></div>
-          <div class="col-2"></div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="btn btn-light btn-sm text-secondary-emphasis"
-            >
-              Temperature
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="btn btn-light btn-sm text-secondary-emphasis"
-            >
-              Precipitation
-            </button>
-          </div>
-          <div class="col-2">
-            <button
-              type="button"
-              class="btn btn-light btn-sm text-secondary-emphasis"
-            >
-              Wind
-            </button>
+          <div class="col-6 column3">
+            <h5 class="cityName" id="cityName"></h5>
+            <ul class="text">
+              <li id="week-day-time"></li>
+              <li id="short-description"></li>
+            </ul>
           </div>
         </div>
 

@@ -19,7 +19,7 @@ function setCurrentDateTime() {
 setCurrentDateTime();
 
 function showWeatherCondition(response) {
-  document.querySelector("#cityChoise").innerHTML = response.data.name;
+  document.querySelector("#cityName").innerHTML = response.data.name;
   document.querySelector("#currentTemp").innerHTML = Math.round(
     response.data.main.temp
   );
