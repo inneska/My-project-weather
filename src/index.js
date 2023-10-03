@@ -13,7 +13,7 @@ function setCurrentDateTime() {
   let hours = now.getHours().toString().padStart(2, "0");
   let min = now.getMinutes().toString().padStart(2, "0");
 
-  let currentDayTime = document.querySelector("#week-day-time");
+  let currentDayTime = document.querySelector("#day-time");
   currentDayTime.innerHTML = `${day} ${hours}:${min}`;
 }
 setCurrentDateTime();
@@ -23,21 +23,20 @@ function showWeatherCondition(response) {
   document.querySelector("#currentTemp").innerHTML = Math.round(
     response.data.main.temp
   );
+  //
   let description = response.data.weather[0].description;
   description = description.charAt(0).toUpperCase() + description.slice(1);
-  let descriptionElememt = document.querySelector("#short-description");
-  descriptionElememt.innerHTML = `${description}`;
+  let descriptionElement = document.querySelector("#short-description");
+  descriptionElement.innerHTML = `${description}`;
   //
-  let humidity = response.data.main.humidity;
-  let humidityElememt = document.querySelector("#humidity");
-  humidityElememt.innerHTML = ` Humidity: ${humidity}%`;
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
   //
-  let wind = response.data.wind.speed;
-  let windElememt = document.querySelector("#wind");
-  windElememt.innerHTML = ` Wind: ${wind} km/h`;
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
 
-function searchDefaultCity(city) {
+function DefaultCity(city) {
   let apiKey = "1dbf926d3b4417bf379db7043bec1047";
   let urlApi = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   axios.get(`${urlApi}`).then(showWeatherCondition);
@@ -46,7 +45,7 @@ function searchDefaultCity(city) {
 function searchCity(event) {
   event.preventDefault();
   let city = document.querySelector("#search-city-input").value;
-  searchDefaultCity(city);
+  DefaultCity(city);
 }
 
 let form = document.querySelector("#search-form");
@@ -89,4 +88,4 @@ function convertToCel(event) {
 let celLink = document.querySelector("#tempCel");
 celLink.addEventListener("click", convertToCel);
 
-searchDefaultCity("Kyiv");
+DefaultCity("Kyiv");

@@ -5,6 +5,7 @@ ul {
   padding: 0;
 }
 li {
+  /* text-transform: capitalize; */
   font-size: 15px;
   margin: 0;
   padding: 0;
