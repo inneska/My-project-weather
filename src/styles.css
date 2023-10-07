@@ -96,3 +96,10 @@ li {
   text-decoration: none;
   font-size: small;
 }
+.weather-temperature .active {
+  color: #202022;
+  cursor: default;
+}
+.weather-temperature .active:hover {
+  text-decoration: none;
+}

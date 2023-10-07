@@ -20,9 +20,12 @@ setCurrentDateTime();
 
 function showWeatherCondition(response) {
   document.querySelector("#cityName").innerHTML = response.data.name;
-  document.querySelector("#currentTemp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  //
+  celsiusTemperatura = response.data.main.temp;
+  //
+  document.querySelector("#currentTemp").innerHTML =
+    Math.round(celsiusTemperatura);
+
   //
   let description = response.data.weather[0].description;
   description = description.charAt(0).toUpperCase() + description.slice(1);
@@ -77,20 +80,22 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 function convertToFar(event) {
   event.preventDefault();
   let temperaturaElement = document.querySelector("#currentTemp");
-  let temperatura = temperaturaElement.innerHTML;
-  temperatura = Number(temperatura);
-  temperaturaElement.innerHTML = Math.round(temperatura * 1.8 + 32);
+  temperaturaElement.innerHTML = Math.round(celsiusTemperatura * 1.8 + 32);
+  celLink.classList.remove("active");
+  farrenLink.classList.add("active");
 }
 
 let farrenLink = document.querySelector("#tempFar");
 farrenLink.addEventListener("click", convertToFar);
 
+let celsiusTemperatura = null;
+
 function convertToCel(event) {
   event.preventDefault();
   let temperaturaElement = document.querySelector("#currentTemp");
-  let temperatura = temperaturaElement.innerHTML;
-  temperatura = Number(temperatura);
-  temperaturaElement.innerHTML = Math.round(((temperatura - 32) * 5) / 9);
+  temperaturaElement.innerHTML = Math.round(celsiusTemperatura);
+  farrenLink.classList.remove("active");
+  celLink.classList.add("active");
 }
 
 let celLink = document.querySelector("#tempCel");
