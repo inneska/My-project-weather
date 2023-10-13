@@ -18,7 +18,60 @@ function setCurrentDateTime() {
 }
 setCurrentDateTime();
 
+function formateDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function displayforecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+    <div class="col-2 weather-forecast-daily">
+      <div class="weather-forecast-daily_day_name">${formateDay(
+        forecastDay.dt
+      )}</div>
+        <img 
+                  src="https://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
+                  alt=""
+                  class="daily_weather_forecast_picture"
+                />
+        <div class="daily_weather_forecast_temps">
+          <span class="day_temp_forecast">${Math.round(
+            forecastDay.temp.max
+          )}°</span>
+          <span class="night_temp_forecast">${Math.round(
+            forecastDay.temp.min
+          )}°</span>
+      </div>
+    </div>
+            
+`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "1dbf926d3b4417bf379db7043bec1047";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(`${apiUrl}`).then(displayforecast);
+}
+
 function showWeatherCondition(response) {
+  console.log(response);
   document.querySelector("#cityName").innerHTML = response.data.name;
   //
   celsiusTemperatura = response.data.main.temp;
@@ -45,6 +98,7 @@ function showWeatherCondition(response) {
   );
   //
   iconElement.setAttribute("alt", description);
+  getForecast(response.data.coord);
 }
 
 function DefaultCity(city) {

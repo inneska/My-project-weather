@@ -1,3 +1,7 @@
+body {
+  background-color: #9ecbe950;
+}
+
 ul {
   list-style: none;
   text-align: left;
@@ -5,7 +9,6 @@ ul {
   padding: 0;
 }
 li {
-  /* text-transform: capitalize; */
   font-size: 15px;
   margin: 0;
   padding: 0;
@@ -75,20 +78,19 @@ li {
   font-size: 40px;
   color: #202022;
 }
-
-.daily_weather {
-  font-size: 100%;
+.weather-forecast {
+  margin-top: 25px;
   text-align: center;
-  color: #737a89;
-  margin-top: 15px;
 }
-.daily_weather_picture_rain {
-  width: 75%;
+
+.daily_weather_forecast_picture {
+  max-width: 100%;
+  display: block;
 }
-.day_temp {
+.day_temp_forecast {
   color: #ed3a2f;
 }
-.night_temp {
+.night_temp_forecast {
   color: #737a89;
 }
 .githubLink {
