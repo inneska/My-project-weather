@@ -131,28 +131,4 @@ function getCurrentLocation(event) {
 let currentLocationButton = document.querySelector("#current-place-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-function convertToFar(event) {
-  event.preventDefault();
-  let temperaturaElement = document.querySelector("#currentTemp");
-  temperaturaElement.innerHTML = Math.round(celsiusTemperatura * 1.8 + 32);
-  celLink.classList.remove("active");
-  farrenLink.classList.add("active");
-}
-
-let farrenLink = document.querySelector("#tempFar");
-farrenLink.addEventListener("click", convertToFar);
-
-let celsiusTemperatura = null;
-
-function convertToCel(event) {
-  event.preventDefault();
-  let temperaturaElement = document.querySelector("#currentTemp");
-  temperaturaElement.innerHTML = Math.round(celsiusTemperatura);
-  farrenLink.classList.remove("active");
-  celLink.classList.add("active");
-}
-
-let celLink = document.querySelector("#tempCel");
-celLink.addEventListener("click", convertToCel);
-
 DefaultCity("Kyiv");
